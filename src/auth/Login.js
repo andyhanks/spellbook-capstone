@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {getUserEmail} from "./AuthAPIManager";
 import "./Login.css";
+import { getUserEmail } from "./AuthAPIManager";
+
 
 
 export const Login = () => {
     const [email, set] = useState("spaceball1@schwartz.gov")
-    const [password, setPassword] = useState("12345");
+    // const [password, setPassword] = useState("12345");
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return getUserEmail(`http://localhost:8088/users/${email}`)
-            .then(res => res.json())
+        return getUserEmail(email)
+       
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
-                    localStorage.setItem("activeUser", JSON.stringify({
+                    localStorage.setItem("activeUser", 
+                    JSON.stringify({
                         id: user.id,
                     }))
 
                     navigate("/")
                 }
                 else {
-                    window.alert("Invalid login")
+                    window.alert("No Dice!")
                 }
             })
     }
@@ -34,7 +36,7 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                <h1>Nutshell</h1>
+                    <h1>Spellbook</h1>
                     <h5>Please sign in</h5>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
