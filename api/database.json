@@ -2,7 +2,8 @@
   "users": [
     {
       "id": 1,
-      "name": "President Scroob",
+      "name":"",
+      "fullName": "President Scroob",
       "email": "spaceball1@schwartz.gov",
       "password": "12345"
     },
@@ -28,7 +29,12 @@
       "id": 4
     }
   ],
-  "spellBooks": [],
+  "spellBooks": [
+    {"id":1,
+    "userId":1,
+    "spellId":1
+  }
+  ],
   "spells": [
     {
       "index": 1,

@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react"
 import { Logout } from "../nav/Logout"
+import { useNavigate } from "react-router-dom"
 
 
 
-export const AllSpellsList = () => {
+export const MySpellBook = () => {
     const [spells, setSpells] = useState([])
+    const [filteredSpells, setFiltered] = useState([])
+    const navigate = useNavigate()
+    //gets the activeUser out of login storage
+    const localActiveUser = localStorage.getItem("active_user")
+    const activeUserObject = JSON.parse(localActiveUser)
+
     useEffect(
         () => {
       fetch(` http://localhost:8088/spells`)
       .then(response => response.json())
       .then((spellArray) => {
-        setSpells(spellArray)
+        const openSpellArray = spellArray.filter(spell => {
+            return spell.userId === activeUserObject.id
+        })
+        setSpells(openSpellArray)
       })
       
       // View the list of spells
@@ -19,7 +29,7 @@ export const AllSpellsList = () => {
     )
 
     return <>
-    <h2>All D&D Spells</h2>
+    <h2>My Collected Spells</h2>
     <article classname="spells" style={{overflowY:"scroll"}}>
     {
         spells.map(
@@ -30,7 +40,7 @@ export const AllSpellsList = () => {
                     <header>Spell: {spell.name}</header>
                     {/* <div>{spell.desc}</div> */}
                     {/* <footer>Components needed to cast: {spell.components}</footer> */}
-                    <button class="button">Add To My Spellbook</button>
+                    <button class="button">Remove From My Spellbook</button>
                 </section>
             }
         )
