@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Logout } from "../nav/Logout"
 import { useNavigate } from "react-router-dom"
+import { SpellDeleteButton } from "./SpellDelete"
 
 
 
@@ -9,7 +10,7 @@ export const MySpellBook = () => {
     const [filteredSpells, setFiltered] = useState([])
     const navigate = useNavigate()
     //gets the activeUser out of login storage
-    const localActiveUser = localStorage.getItem("active_user")
+    const localActiveUser = localStorage.getItem("activeUser")
     const activeUserObject = JSON.parse(localActiveUser)
 
     useEffect(
@@ -17,10 +18,7 @@ export const MySpellBook = () => {
       fetch(` http://localhost:8088/spells`)
       .then(response => response.json())
       .then((spellArray) => {
-        const openSpellArray = spellArray.filter(spell => {
-            return spell.userId === activeUserObject.id
-        })
-        setSpells(openSpellArray)
+        setSpells(spellArray)
       })
       
       // View the list of spells
@@ -28,24 +26,41 @@ export const MySpellBook = () => {
         [] // If this array is empty, You are seeing initial component state
     )
 
+    useEffect(
+        () => {
+      fetch(`http://localhost:8088/spellBooks?_expand=user&_expand=spell`)
+      .then(response => response.json())
+      .then((myspell) => {
+        const mySpellArray = myspell.filter(userSpell => {
+            return userSpell.userId === activeUserObject.id 
+        })
+        setFiltered(mySpellArray)
+      })
+      
+      // View the list of  my chosen spells
+        },
+        [] // If this array is empty, You are seeing initial component state
+    )
+
     return <>
     <h2>My Collected Spells</h2>
-    <article classname="spells" style={{overflowY:"scroll"}}>
+    <article className="spells" style={{overflowY:"scroll"}}>
     {
-        spells.map(
-            (spell) => {
+        filteredSpells.map(
+            (myspell) => {
                 return <section className="spell">
                     
 
-                    <header>Spell: {spell.name}</header>
-                    {/* <div>{spell.desc}</div> */}
+                    <header>Spell: {myspell.spell.name}</header>
+                    <div>{myspell.spell.desc}</div>
                     {/* <footer>Components needed to cast: {spell.components}</footer> */}
-                    <button class="button">Remove From My Spellbook</button>
+                    <button class="button" id={myspell.spell.id}>Remove From My Spellbook </button>
+                    <SpellDeleteButton/>
                 </section>
             }
         )
     }
     </article>
-    <Logout />
+    <Logout/>
     </>
 }

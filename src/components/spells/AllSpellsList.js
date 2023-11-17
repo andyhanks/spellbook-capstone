@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Logout } from "../nav/Logout"
+
 
 
 
@@ -20,7 +20,7 @@ export const AllSpellsList = () => {
 
     return <>
     <h2>All D&D Spells</h2>
-    <article classname="spells" style={{overflowY:"scroll"}}>
+    <article className="spells" style={{overflowY:"scroll"}}>
     {
         spells.map(
             (spell) => {
@@ -30,12 +30,12 @@ export const AllSpellsList = () => {
                     <header>Spell: {spell.name}</header>
                     {/* <div>{spell.desc}</div> */}
                     {/* <footer>Components needed to cast: {spell.components}</footer> */}
-                    <button class="button">Add To My Spellbook</button>
+                    <button class="button" id={spell.id}>Add To My Spellbook</button>
                 </section>
             }
         )
     }
     </article>
-    <Logout />
+   
     </>
 }

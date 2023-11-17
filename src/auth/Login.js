@@ -15,14 +15,14 @@ export const Login = () => {
         e.preventDefault()
 
         return getUserEmail(email)
-       
+
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
-                    localStorage.setItem("activeUser", 
-                    JSON.stringify({
-                        id: user.id,
-                    }))
+                    localStorage.setItem("activeUser",
+                        JSON.stringify({
+                            id: user.id,
+                        }))
 
                     navigate("/")
                 }
