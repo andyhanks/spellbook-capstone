@@ -36,18 +36,83 @@
       "id": 5
     },
     {
-      "email": "ng3@place.com",
+      "email": "bnor@frealm.com",
       "password": "12345",
       "name": "",
-      "fullName": "new guy 2",
+      "fullName": "Bruenor",
       "id": 6
     }
   ],
   "spellBooks": [
     {
-      "id": 1,
+      "userId": 6,
+      "spellId": 7,
+      "id": 4
+    },
+    {
+      "userId": 6,
+      "spellId": 34,
+      "id": 5
+    },
+    {
+      "userId": 6,
+      "spellId": 56,
+      "id": 6
+    },
+    {
+      "userId": 6,
+      "spellId": 78,
+      "id": 7
+    },
+    {
+      "userId": 6,
+      "spellId": 101,
+      "id": 8
+    },
+    {
       "userId": 1,
-      "spellId": 1
+      "spellId": 9,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "spellId": 49,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "spellId": 64,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "spellId": 73,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "spellId": 1,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "spellId": 12,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "spellId": 24,
+      "id": 15
+    },
+    {
+      "userId": 5,
+      "spellId": 5,
+      "id": 17
+    },
+    {
+      "userId": 5,
+      "spellId": 6,
+      "id": 18
     }
   ],
   "spells": [
@@ -2292,6 +2357,55 @@
       "spellId": 1,
       "content": "Good against Trolls. Would use again.",
       "rating": 4
+    },
+    {
+      "content": "animal friends",
+      "rating": "2",
+      "spellId": 6,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "content": "You could make Lumierre!!!",
+      "rating": 5,
+      "spellId": 10,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "content": "My go to for infiltration missions!!!",
+      "rating": 5,
+      "spellId": 5,
+      "userId": 5,
+      "id": 5
+    },
+    {
+      "content": "",
+      "rating": 5,
+      "spellId": 3,
+      "userId": 5,
+      "id": 6
+    },
+    {
+      "content": "Aids!!!",
+      "rating": 5,
+      "spellId": 3,
+      "userId": 5,
+      "id": 7
+    },
+    {
+      "content": "Good against Batman!",
+      "rating": 5,
+      "spellId": 22,
+      "userId": 5,
+      "id": 8
+    },
+    {
+      "content": "This splashes acid. neat",
+      "rating": "3",
+      "spellId": 2,
+      "userId": 5,
+      "id": 9
     }
   ]
 }

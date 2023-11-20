@@ -4,12 +4,14 @@ import AppView from "./components/views/AppView";
 import { Register } from "./auth/Register";
 import { Login } from "./auth/Login";
 
+
 function SpellMain() {
 	return (
 		<Routes>
 
 <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
+
 
 			<Route
 				path='*'

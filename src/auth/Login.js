@@ -7,7 +7,7 @@ import { getUserEmail } from "./AuthAPIManager";
 
 
 export const Login = () => {
-    const [email, set] = useState("spaceball1@schwartz.gov")
+    const [email, set] = useState("mre@faerun.net")
     // const [password, setPassword] = useState("12345");
     const navigate = useNavigate()
 
@@ -36,7 +36,7 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Spellbook</h1>
+                    <h1>Spell Review Book</h1>
                     <h5>Please sign in</h5>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
