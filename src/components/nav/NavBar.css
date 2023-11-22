@@ -1,0 +1,26 @@
+
+.navbar {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    position: sticky;
+    font-size: 18px;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: aquamarine;
+    z-index: 1000;
+    margin-bottom: 2rem;
+}
+.navbar__item {
+    list-style-type: none;
+}
+/* If you want to keep the flex-basis property */
+.navbar__item {
+    flex: 1; /* This will make each item take equal width */
+    max-width: 20%; /* Set a maximum width for each item */
+}
+.navbar__logout {
+    margin-left: auto;
+}

@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { getUserEmail } from "./AuthAPIManager";
-
+import noBgDice from "../img/noBgDice.png"
 
 
 export const Login = () => {
-    const [email, set] = useState("spaceball1@schwartz.gov")
+    const [email, set] = useState("mre@faerun.net")
     // const [password, setPassword] = useState("12345");
     const navigate = useNavigate()
 
@@ -15,14 +15,14 @@ export const Login = () => {
         e.preventDefault()
 
         return getUserEmail(email)
-       
+
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
                     const user = foundUsers[0]
-                    localStorage.setItem("activeUser", 
-                    JSON.stringify({
-                        id: user.id,
-                    }))
+                    localStorage.setItem("activeUser",
+                        JSON.stringify({
+                            id: user.id,
+                        }))
 
                     navigate("/")
                 }
@@ -34,9 +34,10 @@ export const Login = () => {
 
     return (
         <main className="container--login">
+            <img src={noBgDice} alt="dice" className="logo"/>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Spellbook</h1>
+                    <h1>Spell Review Book</h1>
                     <h5>Please sign in</h5>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>

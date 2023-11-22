@@ -8,7 +8,7 @@ export const Logout = () => {
                 <Link className="navbar__link" to="/" onClick={() => {
                     localStorage.removeItem("activeUser")
                     navigate("/login", {replace: true})
-                }}><button className="btn btn-primary">Logout</button></Link>
+                }}>Logout</Link>
             </li>
             : ""
     }
