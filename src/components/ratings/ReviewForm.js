@@ -1,29 +1,41 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useSearchParams } from "react-router-dom"
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom"
 
 
 export const ReviewForm = (props) => {
 
     const [ params ] = useSearchParams()
-
+    const spellId = useParams()
     const navigate = useNavigate()
     //gets the activeUser out of login storage
     const localActiveUser = localStorage.getItem("activeUser")
     const activeUserObject = JSON.parse(localActiveUser)
-    
-    const [review, setReview] = useState({
+    const [reviews, setReviews ] = useState([])
+    const [newReview, setNewReview] = useState({
         content:"",
         rating:5, 
-        spellId: +params.get("spellId"),
+        spellId: +spellId.spellId,
         userId: +activeUserObject.id
     })
 
+    
+useEffect(
+    () => {
+        fetch(`http://localhost:8088/reviews?_expand=spell`)
+        .then (response => response.json())
+        .then((reviewArray) => {
+            setReviews(reviewArray)
+        })
+    },
+    []
+    )
+
+ 
 
             const onChange = (evt, key) => {
-                const copy = {...review}
+                const copy = {...newReview}
                 copy[key] = evt.target.value
-                setReview(copy)
-                console.log(review)
+                setNewReview(copy)
              }
 
         // TODO: Perform the fetch() to POST the object to the API
@@ -33,15 +45,19 @@ export const ReviewForm = (props) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify(newReview)
         })
             .then(r => r.json())
             .then( navigate("/"))
     }
+
+
+    const filteredReview = reviews.filter((singleReview) => singleReview.spellId === newReview.spellId)
+    console.log(filteredReview)
             return (
                 
                 <form className="reviewForm"    onSubmit={(clickEvent) => saveReview(clickEvent)}>
-                    <h2 className="reviewForm__title">{props.spellId}</h2>
+                    <h2 className="reviewForm__title">{filteredReview?.spell?.name}</h2>
                     <fieldset>
                         <div className="form-group">
                             <label htmlFor="description">What did you think?:</label>
@@ -50,7 +66,7 @@ export const ReviewForm = (props) => {
                                 type="text"
                                 className="form-control"
                                 placeholder="How do you feel about this particular spell?"
-                                value={review.content}
+                                value={newReview.content}
                                 onChange={(e) => onChange(e, "content")}
                                  />
                         </div>

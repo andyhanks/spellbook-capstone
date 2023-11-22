@@ -8,38 +8,38 @@
       "password": "12345"
     },
     {
-      "email": "andymchanks@gmail.com",
+      "email": "ng2@place.com",
       "password": "12345",
       "name": "",
-      "fullName": "andy",
+      "fullName": "New Guy",
       "id": 2
-    },
-    {
-      "email": "ng2@place.com",
-      "password": "12345",
-      "name": "",
-      "fullName": "New Guy",
-      "id": 3
-    },
-    {
-      "email": "ng2@place.com",
-      "password": "12345",
-      "name": "",
-      "fullName": "New Guy",
-      "id": 4
     },
     {
       "email": "mre@faerun.net",
       "password": "12345",
       "name": "",
       "fullName": "elminster",
-      "id": 5
+      "id": 3
     },
     {
       "email": "bnor@frealm.com",
       "password": "12345",
       "name": "",
       "fullName": "Bruenor",
+      "id": 4
+    },
+    {
+      "email": "dd@lolth.net",
+      "password": "12345",
+      "name": "",
+      "fullName": "Dritzzt",
+      "id": 5
+    },
+    {
+      "email": "eg@frealms.com",
+      "password": "12345",
+      "name": "",
+      "fullName": "Eldon Goldnickle",
       "id": 6
     }
   ],
@@ -58,16 +58,6 @@
       "userId": 6,
       "spellId": 56,
       "id": 6
-    },
-    {
-      "userId": 6,
-      "spellId": 78,
-      "id": 7
-    },
-    {
-      "userId": 6,
-      "spellId": 101,
-      "id": 8
     },
     {
       "userId": 1,
@@ -113,6 +103,36 @@
       "userId": 5,
       "spellId": 6,
       "id": 18
+    },
+    {
+      "userId": 3,
+      "spellId": 18,
+      "id": 20
+    },
+    {
+      "userId": 3,
+      "spellId": 22,
+      "id": 21
+    },
+    {
+      "userId": 3,
+      "spellId": 33,
+      "id": 22
+    },
+    {
+      "userId": 3,
+      "spellId": 38,
+      "id": 23
+    },
+    {
+      "userId": 6,
+      "spellId": 5,
+      "id": 24
+    },
+    {
+      "userId": 3,
+      "spellId": 14,
+      "id": 25
     }
   ],
   "spells": [
@@ -2360,7 +2380,7 @@
     },
     {
       "content": "animal friends",
-      "rating": "2",
+      "rating": "5",
       "spellId": 6,
       "userId": 1,
       "id": 3
@@ -2380,14 +2400,14 @@
       "id": 5
     },
     {
-      "content": "",
+      "content": "It spells",
       "rating": 5,
       "spellId": 3,
       "userId": 5,
       "id": 6
     },
     {
-      "content": "Aids!!!",
+      "content": "It helps!",
       "rating": 5,
       "spellId": 3,
       "userId": 5,
@@ -2406,6 +2426,27 @@
       "spellId": 2,
       "userId": 5,
       "id": 9
+    },
+    {
+      "content": "I like this spell",
+      "rating": "4",
+      "spellId": 5,
+      "userId": 6,
+      "id": 10
+    },
+    {
+      "content": "Hello we love spell 33",
+      "rating": 5,
+      "spellId": 33,
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "content": "It just works!",
+      "rating": 5,
+      "spellId": 11,
+      "userId": 3,
+      "id": 12
     }
   ]
 }

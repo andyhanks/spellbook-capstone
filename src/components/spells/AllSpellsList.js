@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { ReviewForm } from "../ratings/ReviewForm"
 
 
@@ -11,6 +11,8 @@ export const AllSpellsList = ({setFiltered}) => {
     const activeUserObject = JSON.parse(localActiveUser)
 
     const [spells, setSpells] = useState([])
+
+    
     useEffect(
         () => {
             fetch(` http://localhost:8088/spells`)
@@ -51,8 +53,8 @@ export const AllSpellsList = ({setFiltered}) => {
     }
 
 return <>
-    <h2>All D&D Spells</h2>
-    <article className="spells" style={{ overflowY: "scroll" }}>
+    <article className="all_spells" style={{ overflowY: "scroll" }}>
+    <h2 className="title">All D&D Spells</h2>
         {
             spells.map(
                 (spell) => {
@@ -63,7 +65,7 @@ return <>
                         {/* <div>{spell.desc}</div> */}
                         {/* <footer>Components needed to cast: {spell.components}</footer> */}
                         <button class="button" id={spell.id} onClick={addSpellToBook}>Add To My Spellbook</button>
-                        <button class="button" id={spell.id} onClick={() =>navigate(`/reviewForm?spellId=${spell.id}`)}>Review This Spell</button>
+                        <button class="button" id={spell.id} onClick={() =>navigate(`/reviewForm/${spell.id}`)}>Review This Spell</button>
 
                     </section>
                 }

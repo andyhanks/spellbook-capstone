@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import { Logout } from "../nav/Logout"
-
 import { SpellDeleteButton } from "./SpellDelete"
 
 
@@ -31,17 +29,17 @@ export const MySpellBook = ({filteredSpells, setFiltered}) => {
     )
 
     return <>
-    <h2>My Spellbook</h2>
     <article className="spells" style={{overflowY:"scroll"}}>
+    <h2 className="title">My Spellbook</h2>
     {
         filteredSpells.map(
             (myspell) => {
                 return <section className="spell">
                     
 
-                    <header>Spell: {myspell.spell.name}</header>
-                    <div>{myspell.spell.desc}</div>
-                    {/* <footer>Components needed to cast: {spell.components}</footer> */}
+                    <header className="spell_name">Spell: {myspell.spell.name}</header>
+                    <div className="spell_desc">{myspell.spell.desc}</div>
+                    <footer className="spell_component">Components needed to cast: {myspell.spell.components}</footer>
                   
                     <SpellDeleteButton spellId={myspell.id}/>
                 </section>
@@ -49,6 +47,6 @@ export const MySpellBook = ({filteredSpells, setFiltered}) => {
         )
     }
     </article>
-    <Logout/>
+ 
     </>
 }

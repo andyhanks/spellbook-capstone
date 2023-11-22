@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { getUserEmail } from "./AuthAPIManager";
-
+import noBgDice from "../img/noBgDice.png"
 
 
 export const Login = () => {
@@ -34,6 +34,7 @@ export const Login = () => {
 
     return (
         <main className="container--login">
+            <img src={noBgDice} alt="dice" className="logo"/>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Spell Review Book</h1>
